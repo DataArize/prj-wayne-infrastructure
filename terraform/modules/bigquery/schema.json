@@ -1,0 +1,56 @@
+[
+  {
+    "name": "traceId",
+    "mode": "REQUIRED",
+    "type": "STRING",
+    "description": "Unique identifier for tracing a contract flow end-to-end"
+  },
+  {
+    "name": "contractId",
+    "mode": "REQUIRED",
+    "type": "STRING",
+    "description": "The contract associated with the event"
+  },
+  {
+    "name": "event",
+    "mode": "REQUIRED",
+    "type": "STRING",
+    "description": "Describes the specific event that occurred"
+  },
+  {
+    "name": "status",
+    "mode": "NULLABLE",
+    "type": "STRING",
+    "description": "Status of the event, e.g., success, failure"
+  },
+  {
+    "name": "message",
+    "mode": "NULLABLE",
+    "type": "STRING",
+    "description": "Optional message or error related to the event"
+  },
+  {
+    "name": "timestamp",
+    "mode": "REQUIRED",
+    "type": "TIMESTAMP",
+    "description": "Timestamp of when the event occurred"
+  },
+  {
+    "name": "functionName",
+    "mode": "NULLABLE",
+    "type": "STRING",
+    "description": "Name of the Cloud Function or service emitting this log"
+  },
+  {
+    "name": "chunkId",
+    "mode": "NULLABLE",
+    "type": "STRING",
+    "description": "If applicable, ID of the chunk being processed"
+  },
+  {
+    "name": "environment",
+    "mode": "NULLABLE",
+    "type": "STRING",
+    "description": "The environment the event originated from (e.g., dev, prod)"
+  }
+]
