@@ -7,7 +7,6 @@ resource "google_bigquery_dataset" "bigquery_dataset" {
   labels = {
     environment = var.environment
   }
-
   delete_contents_on_destroy = true
 
 }
