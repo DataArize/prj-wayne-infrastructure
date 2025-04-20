@@ -57,11 +57,6 @@ variable "service_account_name" {
   }
 }
 
-variable "owner_email" {
-  type        = string
-  description = "Email of the user"
-}
-
 variable "tables" {
   description = "List of tables with their attributes"
   type = map(object({

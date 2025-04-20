@@ -29,8 +29,3 @@ variable "service_account_name" {
     error_message = "The service_account_name must not be empty."
   }
 }
-
-variable "owner_email" {
-  type        = string
-  description = "Email of the user"
-}

@@ -87,27 +87,13 @@ jobs:
             echo "PROJECT_REGION=${{ secrets.PROJECT_REGION_PRODUCTION }}" >> $GITHUB_ENV
             echo "DATASET_NAME=${{ secrets.BIGQUERY_DATASET_NAME_PRODUCTION }}" >> $GITHUB_ENV
             echo "SERVICE_ACCOUNT=${{ secrets.GCP_SERVICE_ACCOUNT_EMAIL_PRODUCTION }}" >> $GITHUB_ENV
-            echo "OWNER_EMAIL=${{ secrets.BIGQUERY_TABLE_OWNER_PRODUCTION }}" >> $GITHUB_ENV
             echo "WORKLOAD_IDENTITY=${{ secrets.GCP_WORKLOAD_IDENTITY_FEDERATION_PRODUCTION }}" >> $GITHUB_ENV
-            echo "COMPOSER_NAME=${{ secrets.COMPOSER_NAME_DEVELOPMENT }}" >> $GITHUB_ENV
-            echo "OWNER=${{ secrets.OWNER_NAME }}" >> $GITHUB_ENV
-            echo "REPOSITORY_NAME=${{ secrets.REPOSITORY_NAME_PRODUCTION }}" >> $GITHUB_ENV
-            echo "LOGGING_BUCKET=${{ secrets.LOGGING_BUCKET_PRODUCTION }}" >> $GITHUB_ENV
-            echo "STORAGE_BUCKET=${{ secrets.STORAGE_BUCKET_PRODUCTION }}" >> $GITHUB_ENV
-            echo "ADHOC_BUCKET=${{ secrets.ADHOC_BUCKET_PRODUCTION }}" >> $GITHUB_ENV
           else
             echo "PROJECT_ID=${{ secrets.PROJECT_ID_DEVELOPMENT }}" >> $GITHUB_ENV
             echo "PROJECT_REGION=${{ secrets.PROJECT_REGION_DEVELOPMENT }}" >> $GITHUB_ENV
             echo "DATASET_NAME=${{ secrets.BIGQUERY_DATASET_NAME_DEVELOPMENT }}" >> $GITHUB_ENV
             echo "SERVICE_ACCOUNT=${{ secrets.GCP_SERVICE_ACCOUNT_EMAIL_DEVELOPMENT }}" >> $GITHUB_ENV
-            echo "OWNER_EMAIL=${{ secrets.BIGQUERY_TABLE_OWNER_DEVELOPMENT }}" >> $GITHUB_ENV
             echo "WORKLOAD_IDENTITY=${{ secrets.GCP_WORKLOAD_IDENTITY_FEDERATION_DEVELOPMENT }}" >> $GITHUB_ENV
-            echo "COMPOSER_NAME=${{ secrets.COMPOSER_NAME_DEVELOPMENT }}" >> $GITHUB_ENV
-            echo "OWNER=${{ secrets.OWNER_NAME }}" >> $GITHUB_ENV
-            echo "REPOSITORY_NAME=${{ secrets.REPOSITORY_NAME_DEVELOPMENT }}" >> $GITHUB_ENV
-            echo "LOGGING_BUCKET=${{ secrets.LOGGING_BUCKET_DEVELOPMENT }}" >> $GITHUB_ENV
-            echo "STORAGE_BUCKET=${{ secrets.STORAGE_BUCKET_DEVELOPMENT }}" >> $GITHUB_ENV
-            echo "ADHOC_BUCKET=${{ secrets.ADHOC_BUCKET_DEVELOPMENT }}" >> $GITHUB_ENV
           fi
 
       - name: Checkout Repository
@@ -138,15 +124,7 @@ jobs:
           TF_VAR_project_region: ${{ env.PROJECT_REGION }}
           TF_VAR_dataset_name: ${{ env.DATASET_NAME }}
           TF_VAR_service_account_name: ${{ env.SERVICE_ACCOUNT }}
-          TF_VAR_owner_email: ${{ env.OWNER_EMAIL }}
-          TF_VAR_service_account: ${{ env.SERVICE_ACCOUNT }}
-          TF_VAR_composer_name: ${{ env.COMPOSER_NAME }}
           TF_VAR_environment: ${{ env.ENVIRONMENT }}
-          TF_VAR_owner: ${{ env.OWNER }}
-          TF_VAR_repository_name: ${{ env.REPOSITORY_NAME }}
-          TF_VAR_logging_bucket: ${{ env.LOGGING_BUCKET }}
-          TF_VAR_storage_bucket: ${{ env.STORAGE_BUCKET }}
-          TF_VAR_adhoc_bucket: ${{ env.ADHOC_BUCKET }}
         run: |
           set -o pipefail 
           terraform plan -input=false -detailed-exitcode -out=tfplan 2>&1 | tee plan.txt
@@ -198,27 +176,13 @@ jobs:
             echo "PROJECT_REGION=${{ secrets.PROJECT_REGION_PRODUCTION }}" >> $GITHUB_ENV
             echo "DATASET_NAME=${{ secrets.BIGQUERY_DATASET_NAME_PRODUCTION }}" >> $GITHUB_ENV
             echo "SERVICE_ACCOUNT=${{ secrets.GCP_SERVICE_ACCOUNT_EMAIL_PRODUCTION }}" >> $GITHUB_ENV
-            echo "OWNER_EMAIL=${{ secrets.BIGQUERY_TABLE_OWNER_PRODUCTION }}" >> $GITHUB_ENV
             echo "WORKLOAD_IDENTITY=${{ secrets.GCP_WORKLOAD_IDENTITY_FEDERATION_PRODUCTION }}" >> $GITHUB_ENV
-            echo "COMPOSER_NAME=${{ secrets.COMPOSER_NAME_DEVELOPMENT }}" >> $GITHUB_ENV
-            echo "OWNER=${{ secrets.OWNER_NAME }}" >> $GITHUB_ENV
-            echo "REPOSITORY_NAME=${{ secrets.REPOSITORY_NAME_PRODUCTION }}" >> $GITHUB_ENV
-            echo "LOGGING_BUCKET=${{ secrets.LOGGING_BUCKET_PRODUCTION }}" >> $GITHUB_ENV
-            echo "STORAGE_BUCKET=${{ secrets.STORAGE_BUCKET_PRODUCTION }}" >> $GITHUB_ENV
-            echo "ADHOC_BUCKET=${{ secrets.ADHOC_BUCKET_PRODUCTION }}" >> $GITHUB_ENV
           else
             echo "PROJECT_ID=${{ secrets.PROJECT_ID_DEVELOPMENT }}" >> $GITHUB_ENV
             echo "PROJECT_REGION=${{ secrets.PROJECT_REGION_DEVELOPMENT }}" >> $GITHUB_ENV
             echo "DATASET_NAME=${{ secrets.BIGQUERY_DATASET_NAME_DEVELOPMENT }}" >> $GITHUB_ENV
             echo "SERVICE_ACCOUNT=${{ secrets.GCP_SERVICE_ACCOUNT_EMAIL_DEVELOPMENT }}" >> $GITHUB_ENV
-            echo "OWNER_EMAIL=${{ secrets.BIGQUERY_TABLE_OWNER_DEVELOPMENT }}" >> $GITHUB_ENV
             echo "WORKLOAD_IDENTITY=${{ secrets.GCP_WORKLOAD_IDENTITY_FEDERATION_DEVELOPMENT }}" >> $GITHUB_ENV
-            echo "COMPOSER_NAME=${{ secrets.COMPOSER_NAME_DEVELOPMENT }}" >> $GITHUB_ENV
-            echo "OWNER=${{ secrets.OWNER_NAME }}" >> $GITHUB_ENV
-            echo "REPOSITORY_NAME=${{ secrets.REPOSITORY_NAME_DEVELOPMENT }}" >> $GITHUB_ENV
-            echo "LOGGING_BUCKET=${{ secrets.LOGGING_BUCKET_DEVELOPMENT }}" >> $GITHUB_ENV
-            echo "STORAGE_BUCKET=${{ secrets.STORAGE_BUCKET_DEVELOPMENT }}" >> $GITHUB_ENV
-            echo "ADHOC_BUCKET=${{ secrets.ADHOC_BUCKET_DEVELOPMENT }}" >> $GITHUB_ENV
           fi
 
       - name: Checkout Repository
@@ -249,15 +213,7 @@ jobs:
           TF_VAR_project_region: ${{ env.PROJECT_REGION }}
           TF_VAR_dataset_name: ${{ env.DATASET_NAME }}
           TF_VAR_service_account_name: ${{ env.SERVICE_ACCOUNT }}
-          TF_VAR_owner_email: ${{ env.OWNER_EMAIL }}
-          TF_VAR_service_account: ${{ env.SERVICE_ACCOUNT }}
-          TF_VAR_composer_name: ${{ env.COMPOSER_NAME }}
           TF_VAR_environment: ${{ env.ENVIRONMENT }}
-          TF_VAR_owner: ${{ env.OWNER }}
-          TF_VAR_repository_name: ${{ env.REPOSITORY_NAME }}
-          TF_VAR_logging_bucket: ${{ env.LOGGING_BUCKET }}
-          TF_VAR_storage_bucket: ${{ env.STORAGE_BUCKET }}
-          TF_VAR_adhoc_bucket: ${{ env.ADHOC_BUCKET }}
 
         run: |
           set -o pipefail 
