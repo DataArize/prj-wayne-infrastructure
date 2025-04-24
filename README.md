@@ -21,7 +21,12 @@ The repository is designed with scalability in mind, allowing future resource pr
    - A table within the dataset with schema definition.
    - Supports ingestion-ready table structure for further ETL and reporting.
 
----
+### Functionality (v0.2.0)
+
+1. **GCS Buckets:**
+   - Primary Storage Bucket for general data storage.
+   - Logging Bucket to store logs for auditing and diagnostics.
+   - Configurable bucket names, location, and lifecycle policies.
 
 ## Getting Started
 
@@ -56,6 +61,8 @@ The repository is designed with scalability in mind, allowing future resource pr
    bigquery_dataset_id    = "your-dataset-id"
    bigquery_table_id      = "your-table-id"
    dataset_location       = "us"
+   storage_bucket         = "your-gcp-bucket-name"
+   logging_bucket         = "your-gcp-bucket-name"
    ```
 
 4. **Run Terraform Plan:**
@@ -89,9 +96,10 @@ The repository is designed with scalability in mind, allowing future resource pr
 
 ## Version History
 
-| Version | Date       | Updates                               | Author         |
-| ------- | ---------- | ------------------------------------- | -------------- |
-| v0.1.0  | 2025-04-20 | Initial release: Added BigQuery setup | A.V. Amith Sai |
+| Version | Date       | Updates                                 | Author         |
+| ------- | ---------- | --------------------------------------- | -------------- |
+| v0.1.0  | 2025-04-20 | Initial release: Added BigQuery setup   | A.V. Amith Sai |
+| v0.2.0  | 2025-04-24 | Added storage bucket and logging bucket | A.V. Amith Sai |
 
 ---
 
