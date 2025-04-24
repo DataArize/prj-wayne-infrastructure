@@ -6,7 +6,6 @@ module "bigquery" {
   dataset_name         = var.dataset_name
 }
 
-
 module "cloud_storage" {
   source                   = "../../modules/storage"
   project_id               = var.project_id
