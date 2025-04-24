@@ -1,7 +1,3 @@
-variable "dataset_name" {
-  type        = string
-  description = "Name of the BigQuery dataset for storing Spotify playlist data."
-}
 
 variable "project_id" {
   type        = string
@@ -18,15 +14,6 @@ variable "project_region" {
   validation {
     condition     = length(var.project_region) > 0
     error_message = "The project_region must be specified."
-  }
-}
-
-variable "service_account_name" {
-  type        = string
-  description = "The name of the service account used for resource access."
-  validation {
-    condition     = length(var.service_account_name) > 0
-    error_message = "The service_account_name must not be empty."
   }
 }
 
@@ -69,6 +56,48 @@ variable "storage_bucket" {
   type        = string
   description = "The name of the Google Cloud Storage bucket where datasets will be stored. It must be globally unique across GCP."
 }
+
+variable "change_storage_type" {
+  type        = string
+  default     = "SetStorageClass"
+  description = "The action to take for changing the storage class of the objects in the storage bucket. This can help in optimizing storage costs based on data access patterns."
+}
+
+variable "nearline_storage_class" {
+  type        = string
+  default     = "NEARLINE"
+  description = "The storage class used for objects that are accessed less than once a month, suitable for infrequently accessed data."
+}
+
+variable "coldline_storage_class" {
+  type        = string
+  default     = "COLDLINE"
+  description = "The storage class used for objects that are accessed less than once a year, designed for long-term storage of infrequently accessed data."
+}
+
+variable "archive_storage_class" {
+  type        = string
+  default     = "ARCHIVE"
+  description = "The storage class used for objects that are rarely accessed, suitable for long-term retention and archiving of data."
+}
+
+variable "delete" {
+  type        = string
+  default     = "Delete"
+  description = "The action type to perform on the storage bucket or its contents, indicating whether to delete objects based on the specified age."
+}
+
+variable "log_object_prefix" {
+  type        = string
+  default     = "logs-"
+  description = "The prefix to use for log object names in the storage bucket, helping in organizing and identifying log files easily."
+}
+
+variable "logging_bucket" {
+  type        = string
+  description = "The name of the Google Cloud Storage bucket where logs will be stored. It must be globally unique across GCP."
+}
+
 
 variable "logging_bucket" {
   type        = string
