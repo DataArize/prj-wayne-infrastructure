@@ -74,3 +74,12 @@ variable "logging_bucket" {
   type        = string
   description = "The name of the Google Cloud Storage bucket where logs will be stored. It must be globally unique across GCP."
 }
+
+variable "repository_name" {
+  type        = string
+  description = "The name of the Artifact Registry repository."
+  validation {
+    condition     = length(var.repository_name) > 0
+    error_message = "The repository_name must not be empty."
+  }
+}

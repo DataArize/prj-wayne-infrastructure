@@ -1,7 +1,3 @@
-variable "dataset_name" {
-  type        = string
-  description = "Name of the BigQuery dataset for storing Spotify playlist data."
-}
 
 variable "project_id" {
   type        = string
@@ -21,11 +17,21 @@ variable "project_region" {
   }
 }
 
-variable "service_account_name" {
+variable "repository_name" {
   type        = string
-  description = "The name of the service account used for resource access."
+  description = "The name of the Artifact Registry repository."
   validation {
-    condition     = length(var.service_account_name) > 0
-    error_message = "The service_account_name must not be empty."
+    condition     = length(var.repository_name) > 0
+    error_message = "The repository_name must not be empty."
+  }
+}
+
+variable "artifact_format" {
+  type        = string
+  description = "The format of artifacts stored in the registry (e.g., DOCKER, MAVEN, NPM)."
+  default     = "DOCKER"
+  validation {
+    condition     = contains(["DOCKER", "MAVEN", "NPM"], var.artifact_format)
+    error_message = "Valid values for artifact_format are: DOCKER, MAVEN, NPM."
   }
 }

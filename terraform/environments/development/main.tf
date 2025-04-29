@@ -19,3 +19,11 @@ module "cloud_storage" {
   storage_bucket           = var.storage_bucket
   environment              = var.environment
 }
+
+module "artifact_registry" {
+  source          = "../../modules/regsitry"
+  repository_name = var.repository_name
+  artifact_format = var.artifact_format
+  project_id      = var.project_id
+  project_region  = var.project_region
+}

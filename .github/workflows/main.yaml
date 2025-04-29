@@ -90,6 +90,7 @@ jobs:
             echo "WORKLOAD_IDENTITY=${{ secrets.GCP_WORKLOAD_IDENTITY_FEDERATION_PRODUCTION }}" >> $GITHUB_ENV
             echo "LOGGING_BUCKET=${{ secrets.GCP_LOGGING_BUCKET_PRODUCTION }}" >> $GITHUB_ENV
             echo "STORAGE_BUCKET=${{ secrets.GCP_STORAGE_BUCKET_PRODUCTION }}" >> $GITHUB_ENV
+            echo "REGISTRY_NAME=${{ secrets.REPOSITORY_NAME_PRODUCTION }}" >> $GITHUB_ENV
           else
             echo "PROJECT_ID=${{ secrets.PROJECT_ID_DEVELOPMENT }}" >> $GITHUB_ENV
             echo "PROJECT_REGION=${{ secrets.PROJECT_REGION_DEVELOPMENT }}" >> $GITHUB_ENV
@@ -98,7 +99,7 @@ jobs:
             echo "WORKLOAD_IDENTITY=${{ secrets.GCP_WORKLOAD_IDENTITY_FEDERATION_DEVELOPMENT }}" >> $GITHUB_ENV
             echo "LOGGING_BUCKET=${{ secrets.GCP_LOGGING_BUCKET_DEVELOPMENT }}" >> $GITHUB_ENV
             echo "STORAGE_BUCKET=${{ secrets.GCP_STORAGE_BUCKET_DEVELOPMENT }}" >> $GITHUB_ENV
-
+            echo "REGISTRY_NAME=${{ secrets.REPOSITORY_NAME_DEVELOPMENT }}" >> $GITHUB_ENV
           fi
 
       - name: Checkout Repository
@@ -132,6 +133,8 @@ jobs:
           TF_VAR_environment: ${{ env.ENVIRONMENT }}
           TF_VAR_logging_bucket: ${{ env.LOGGING_BUCKET }}
           TF_VAR_storage_bucket: ${{ env.STORAGE_BUCKET }}
+          TF_VAR_repository_name: ${{ env.REGISTRY_NAME }}
+
         run: |
           set -o pipefail 
           terraform plan -input=false -detailed-exitcode -out=tfplan 2>&1 | tee plan.txt
@@ -186,6 +189,7 @@ jobs:
             echo "WORKLOAD_IDENTITY=${{ secrets.GCP_WORKLOAD_IDENTITY_FEDERATION_PRODUCTION }}" >> $GITHUB_ENV
             echo "LOGGING_BUCKET=${{ secrets.GCP_LOGGING_BUCKET_PRODUCTION }}" >> $GITHUB_ENV
             echo "STORAGE_BUCKET=${{ secrets.GCP_STORAGE_BUCKET_PRODUCTION }}" >> $GITHUB_ENV
+            echo "REGISTRY_NAME=${{ secrets.REPOSITORY_NAME_PRODUCTION }}" >> $GITHUB_ENV
           else
             echo "PROJECT_ID=${{ secrets.PROJECT_ID_DEVELOPMENT }}" >> $GITHUB_ENV
             echo "PROJECT_REGION=${{ secrets.PROJECT_REGION_DEVELOPMENT }}" >> $GITHUB_ENV
@@ -194,7 +198,7 @@ jobs:
             echo "WORKLOAD_IDENTITY=${{ secrets.GCP_WORKLOAD_IDENTITY_FEDERATION_DEVELOPMENT }}" >> $GITHUB_ENV
             echo "LOGGING_BUCKET=${{ secrets.GCP_LOGGING_BUCKET_DEVELOPMENT }}" >> $GITHUB_ENV
             echo "STORAGE_BUCKET=${{ secrets.GCP_STORAGE_BUCKET_DEVELOPMENT }}" >> $GITHUB_ENV
-
+            echo "REGISTRY_NAME=${{ secrets.REPOSITORY_NAME_DEVELOPMENT }}" >> $GITHUB_ENV
           fi
 
       - name: Checkout Repository
@@ -228,7 +232,7 @@ jobs:
           TF_VAR_environment: ${{ env.ENVIRONMENT }}
           TF_VAR_logging_bucket: ${{ env.LOGGING_BUCKET }}
           TF_VAR_storage_bucket: ${{ env.STORAGE_BUCKET }}
-
+          TF_VAR_repository_name: ${{ env.REGISTRY_NAME }}
         run: |
           set -o pipefail 
           terraform apply -input=false -auto-approve -no-color 2>&1 | tee apply.txt
