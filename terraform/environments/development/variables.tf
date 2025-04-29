@@ -83,3 +83,13 @@ variable "repository_name" {
     error_message = "The repository_name must not be empty."
   }
 }
+
+variable "artifact_format" {
+  type        = string
+  description = "The format of artifacts stored in the registry (e.g., DOCKER, MAVEN, NPM)."
+  default     = "DOCKER"
+  validation {
+    condition     = contains(["DOCKER", "MAVEN", "NPM"], var.artifact_format)
+    error_message = "Valid values for artifact_format are: DOCKER, MAVEN, NPM."
+  }
+}

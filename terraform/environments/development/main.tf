@@ -21,7 +21,7 @@ module "cloud_storage" {
 }
 
 module "artifact_registry" {
-  source          = "../../modules/regsitry"
+  source          = "../../modules/artifact"
   repository_name = var.repository_name
   artifact_format = var.artifact_format
   project_id      = var.project_id
