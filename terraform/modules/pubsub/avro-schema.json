@@ -1,0 +1,34 @@
+{
+  "type": "record",
+  "name": "FileMetadata",
+  "fields": [
+    {
+      "name": "traceid",
+      "type": "string"
+    },
+    {
+      "name": "fileUrl",
+      "type": "string"
+    },
+    {
+      "name": "fileName",
+      "type": "string"
+    },
+    {
+      "name": "rangeSupported",
+      "type": "boolean"
+    },
+    {
+      "name": "fileExtenstion",
+      "type": "string"
+    },
+    {
+      "name": "fileSize",
+      "type": "string"
+    },
+    {
+      "name": "contentType",
+      "type": "string"
+    }
+  ]
+}

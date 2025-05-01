@@ -27,3 +27,13 @@ module "artifact_registry" {
   project_id      = var.project_id
   project_region  = var.project_region
 }
+
+module "pubsub" {
+  source                     = "../../modules/pubsub"
+  schema_name                = var.schema_name
+  schema_type                = var.schema_type
+  topic_name                 = var.topic_name
+  message_retention_duration = var.message_retention_duration
+  environment_pubsub         = var.environment_pubsub
+  deadletter_name            = var.deadletter_name
+}

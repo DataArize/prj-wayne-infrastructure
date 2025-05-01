@@ -1,5 +1,7 @@
-access_prevention_policy = "enforced"
-nearline_storage_age     = 31
-coldline_storage_age     = 62
-archive_storage_age      = 94
-delete_age               = 128
+access_prevention_policy   = "enforced"
+nearline_storage_age       = 31
+coldline_storage_age       = 62
+archive_storage_age        = 94
+delete_age                 = 128
+schema_type                = "AVRO"
+message_retention_duration = "86600s"
