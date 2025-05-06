@@ -16,7 +16,7 @@ resource "google_artifact_registry_repository" "artifact_registry" {
 
   cleanup_policies {
     id     = var.delete_untagged_images
-    action = var.delete_action
+    action = var.retain_action
     most_recent_versions {
       keep_count = var.image_count
     }
