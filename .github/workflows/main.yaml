@@ -95,6 +95,7 @@ jobs:
             echo "SCHEMA_NAME=${{ secrets.SCHEMA_NAME_PRODUCTION }}" >> $GITHUB_ENV
             echo "DEADLETTER_NAME=${{ secrets.DEADLETTER_NAME_PRODUCTION }}" >> $GITHUB_ENV
             echo "SERVICE_NAME=${{ secrets.COMPUTE_DECIDER_PRODUCTION }}" >> $GITHUB_ENV
+            echo "EMAIL=${{ secrets.EMAIL_NOTIFICATION_PRODUCTION }}" >> $GITHUB_ENV
           else
             echo "PROJECT_ID=${{ secrets.PROJECT_ID_DEVELOPMENT }}" >> $GITHUB_ENV
             echo "PROJECT_REGION=${{ secrets.PROJECT_REGION_DEVELOPMENT }}" >> $GITHUB_ENV
@@ -108,6 +109,7 @@ jobs:
             echo "SCHEMA_NAME=${{ secrets.SCHEMA_NAME_DEVELOPMENT }}" >> $GITHUB_ENV
             echo "DEADLETTER_NAME=${{ secrets.DEADLETTER_NAME_DEVELOPMENT }}" >> $GITHUB_ENV
             echo "SERVICE_NAME=${{ secrets.COMPUTE_DECIDER_DEVELOPMENT }}" >> $GITHUB_ENV
+            echo "EMAIL=${{ secrets.EMAIL_NOTIFICATION_DEVELOPMENT }}" >> $GITHUB_ENV
           fi
 
       - name: Checkout Repository
@@ -146,6 +148,7 @@ jobs:
           TF_VAR_schema_name: ${{ env.SCHEMA_NAME }}
           TF_VAR_deadletter_name: ${{ env.DEADLETTER_NAME }}
           TF_VAR_service_name: ${{ env.SERVICE_NAME }}
+          TF_VAR_email: ${{ env.EMAIL }}
         run: |
           set -o pipefail 
           terraform plan -input=false -detailed-exitcode -out=tfplan 2>&1 | tee plan.txt
@@ -205,6 +208,7 @@ jobs:
             echo "SCHEMA_NAME=${{ secrets.SCHEMA_NAME_PRODUCTION }}" >> $GITHUB_ENV
             echo "DEADLETTER_NAME=${{ secrets.DEADLETTER_NAME_PRODUCTION }}" >> $GITHUB_ENV
             echo "SERVICE_NAME=${{ secrets.COMPUTE_DECIDER_PRODUCTION }}" >> $GITHUB_ENV
+            echo "EMAIL=${{ secrets.EMAIL_NOTIFICATION_PRODUCTION }}" >> $GITHUB_ENV
           else
             echo "PROJECT_ID=${{ secrets.PROJECT_ID_DEVELOPMENT }}" >> $GITHUB_ENV
             echo "PROJECT_REGION=${{ secrets.PROJECT_REGION_DEVELOPMENT }}" >> $GITHUB_ENV
@@ -218,6 +222,7 @@ jobs:
             echo "SCHEMA_NAME=${{ secrets.SCHEMA_NAME_DEVELOPMENT }}" >> $GITHUB_ENV
             echo "DEADLETTER_NAME=${{ secrets.DEADLETTER_NAME_DEVELOPMENT }}" >> $GITHUB_ENV
             echo "SERVICE_NAME=${{ secrets.COMPUTE_DECIDER_DEVELOPMENT }}" >> $GITHUB_ENV
+            echo "EMAIL=${{ secrets.EMAIL_NOTIFICATION_DEVELOPMENT }}" >> $GITHUB_ENV
           fi
 
       - name: Checkout Repository
@@ -256,6 +261,7 @@ jobs:
           TF_VAR_schema_name: ${{ env.SCHEMA_NAME }}
           TF_VAR_deadletter_name: ${{ env.DEADLETTER_NAME }}
           TF_VAR_service_name: ${{ env.SERVICE_NAME }}
+          TF_VAR_email: ${{ env.EMAIL }}
         run: |
           set -o pipefail 
           terraform apply -input=false -auto-approve -no-color 2>&1 | tee apply.txt

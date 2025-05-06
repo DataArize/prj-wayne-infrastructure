@@ -37,3 +37,8 @@ module "monitoring" {
   project_region = var.project_region
   service_name   = var.service_name
 }
+
+module "alerts" {
+  source = "../../modules/alerts"
+  email  = var.email
+}

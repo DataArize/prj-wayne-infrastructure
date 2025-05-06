@@ -145,5 +145,13 @@ variable "timeout_period" {
 variable "service_name" {
   type        = string
   description = "Service name to monitor"
+}
 
+variable "email" {
+  description = "The recipient email address for notifications."
+  type        = string
+  validation {
+    condition     = length(var.email) > 0 && can(regex("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$", var.email))
+    error_message = "The email must be a valid email address."
+  }
 }
