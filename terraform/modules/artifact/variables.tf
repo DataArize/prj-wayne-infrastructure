@@ -34,3 +34,52 @@ variable "artifact_format" {
     error_message = "Valid values for artifact_format are: DOCKER, MAVEN, NPM."
   }
 }
+
+variable "delete_untagged_images" {
+  type        = string
+  description = "Identifier for the cleanup policy that deletes untagged images."
+  default     = "delete_untagged_images"
+}
+
+variable "delete_action" {
+  type        = string
+  description = "The action to perform in the cleanup policy (e.g., DELETE, KEEP)."
+  default     = "DELETE"
+}
+
+variable "untagged_tag_state" {
+  type        = string
+  description = "The tag state condition for the cleanup policy (e.g., TAGGED, UNTAGGED)."
+  default     = "UNTAGGED"
+}
+
+variable "image_count" {
+  type        = number
+  description = "The number of most recent untagged images to retain."
+  default     = 10
+}
+
+
+variable "retain_tagged_images_policy_id" {
+  type        = string
+  description = "Identifier for the cleanup policy that retains tagged images."
+  default     = "retain-tagged-prod-dev"
+}
+
+variable "retain_action" {
+  type        = string
+  description = "The action to perform for retaining tagged images (e.g., KEEP)."
+  default     = "KEEP"
+}
+
+variable "tagged_tag_state" {
+  type        = string
+  description = "The tag state condition for retaining tagged images."
+  default     = "TAGGED"
+}
+
+variable "tag_prefixes_to_keep" {
+  type        = list(string)
+  description = "List of tag prefixes for images that should be retained."
+  default     = ["prod", "development"]
+}
