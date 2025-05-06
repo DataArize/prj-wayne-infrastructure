@@ -13,7 +13,6 @@ resource "google_monitoring_uptime_check_config" "cloud_run_function_uptime" {
     }
   }
 
-
   monitored_resource {
     type = var.cloud_run_revision
     labels = {
@@ -23,4 +22,3 @@ resource "google_monitoring_uptime_check_config" "cloud_run_function_uptime" {
     }
   }
 }
-
