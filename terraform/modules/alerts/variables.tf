@@ -25,6 +25,13 @@ variable "alert_display_name" {
   default     = "Cloud Run Function Uptime Alert"
 }
 
+
+variable "file_streamer_display_name" {
+  description = "The display name for the Cloud Run function alert policy."
+  type        = string
+  default     = "File Streamer Cloud Run Job Uptime Alert"
+}
+
 variable "combiner_type_or" {
   description = "The combiner type for alert conditions (e.g., OR, AND)."
   type        = string
@@ -37,10 +44,22 @@ variable "conditions_display_name" {
   default     = "Cloud Run Function Uptime Condition"
 }
 
+variable "file_streamer_conditions_display_name" {
+  description = "The display name for the alert condition."
+  type        = string
+  default     = "File Streamer Cloud Run Job Uptime Condition"
+}
+
 variable "filter" {
   description = "The monitoring filter expression for Cloud Run function uptime."
   type        = string
   default     = "resource.type=\"cloud_function\" AND resource.labels.function_name=\"prj-wayne-compute-decider\" AND metric.type=\"cloudfunctions.googleapis.com/function/execution_count\" AND metric.label.\"status\"=\"error\""
+}
+
+variable "file_streamer_filter" {
+  description = "The monitoring filter expression for Cloud Run Job"
+  type        = string
+  default     = "resource.type = \"cloud_run_job\" AND resource.labels.job_name = \"prj-wayne-file-streamer\" AND metric.type = \"run.googleapis.com/job/completed_execution_count\" AND metric.labels.result = \"failed\""
 }
 
 variable "alert_duration" {
@@ -65,4 +84,11 @@ variable "aligner_mean" {
   description = "The aligner type used for aggregating time-series data."
   type        = string
   default     = "ALIGN_MEAN"
+}
+
+
+variable "aligner_count" {
+  description = "The aligner type used for aggregating time-series data."
+  type        = string
+  default     = "ALIGN_COUNT"
 }
