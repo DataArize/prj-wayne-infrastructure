@@ -69,6 +69,12 @@ variable "tables" {
       table_name        = "contact_trace_logs"
       table_description = "Table used to store audit logs"
       schema_file_path  = "schema.json"
+    },
+    contract_file_queue = {
+      table_name        = "contract_file_queue"
+      table_description = "Table used to store contract queue's"
+      schema_file_path  = "contract_queue.json"
+
     }
   }
 }

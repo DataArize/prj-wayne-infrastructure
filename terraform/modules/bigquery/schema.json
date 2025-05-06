@@ -30,7 +30,7 @@
     "description": "Optional message or error related to the event"
   },
   {
-    "name": "timestamp",
+    "name": "createdTimestamp",
     "mode": "REQUIRED",
     "type": "TIMESTAMP",
     "description": "Timestamp of when the event occurred"
@@ -52,5 +52,11 @@
     "mode": "NULLABLE",
     "type": "STRING",
     "description": "The environment the event originated from (e.g., dev, prod)"
+  },
+  {
+    "name": "fileUrl",
+    "mode": "NULLABLE",
+    "type": "STRING",
+    "description": "file url"
   }
 ]

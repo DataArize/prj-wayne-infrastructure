@@ -28,6 +28,11 @@ The repository is designed with scalability in mind, allowing future resource pr
    - Logging Bucket to store logs for auditing and diagnostics.
    - Configurable bucket names, location, and lifecycle policies.
 
+### Functionality (v0.3.0)
+
+1. **Monitoring:**
+   - Added monitoring for `compute-decider` cloud run function.
+
 ## Getting Started
 
 ### Prerequisites
@@ -63,6 +68,7 @@ The repository is designed with scalability in mind, allowing future resource pr
    dataset_location       = "us"
    storage_bucket         = "your-gcp-bucket-name"
    logging_bucket         = "your-gcp-bucket-name"
+   service_name           = "your-cloud-run-function-service-name"
    ```
 
 4. **Run Terraform Plan:**
@@ -100,6 +106,7 @@ The repository is designed with scalability in mind, allowing future resource pr
 | ------- | ---------- | --------------------------------------- | -------------- |
 | v0.1.0  | 2025-04-20 | Initial release: Added BigQuery setup   | A.V. Amith Sai |
 | v0.2.0  | 2025-04-24 | Added storage bucket and logging bucket | A.V. Amith Sai |
+| v0.3.0  | 2025-05-06 | Added monitoring for cloud run services | A.V. Amith Sai |
 
 ---
 

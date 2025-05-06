@@ -19,3 +19,26 @@ module "cloud_storage" {
   storage_bucket           = var.storage_bucket
   environment              = var.environment
 }
+
+module "artifact_registry" {
+  source          = "../../modules/artifact"
+  repository_name = var.repository_name
+  artifact_format = var.artifact_format
+  project_id      = var.project_id
+  project_region  = var.project_region
+}
+
+
+module "monitoring" {
+  source         = "../../modules/monitoring"
+  uptime_timeout = var.uptime_timeout
+  project_id     = var.project_id
+  timeout_period = var.timeout_period
+  project_region = var.project_region
+  service_name   = var.service_name
+}
+
+module "alerts" {
+  source = "../../modules/alerts"
+  email  = var.email
+}
