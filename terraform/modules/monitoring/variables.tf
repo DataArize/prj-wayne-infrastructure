@@ -24,7 +24,7 @@ variable "request_method_get" {
 variable "path" {
   description = "The root path for the uptime check request."
   type        = string
-  default     = "/"
+  default     = "/health"
 }
 
 variable "default_port" {
