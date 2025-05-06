@@ -131,3 +131,19 @@ variable "deadletter_name" {
   type        = string
   description = "The name of the topic to be used."
 }
+
+variable "uptime_timeout" {
+  description = "Timeout duration for the uptime check (e.g., \"10s\")."
+  type        = string
+}
+
+variable "timeout_period" {
+  description = "Timeout period for the uptime check (e.g., \"10s\")."
+  type        = string
+}
+
+variable "service_name" {
+  type        = string
+  description = "Service name to monitor"
+
+}

@@ -5,3 +5,5 @@ archive_storage_age        = 94
 delete_age                 = 128
 schema_type                = "AVRO"
 message_retention_duration = "86600s"
+uptime_timeout             = "60s"
+timeout_period             = "300s"
