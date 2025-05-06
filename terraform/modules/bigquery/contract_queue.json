@@ -1,0 +1,44 @@
+[
+  {
+    "name": "traceId",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "Unique identifier for tracing a contract flow end-to-end"
+  },
+  {
+    "name": "contractId",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "The contract associated with the event"
+  },
+  {
+    "name": "status",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Status of the event, e.g., pending, success, failure"
+  },
+  {
+    "name": "timestamp",
+    "type": "TIMESTAMP",
+    "mode": "REQUIRED",
+    "description": "Timestamp of when the event occurred"
+  },
+  {
+    "name": "functionName",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Name of the Cloud Function or service emitting this log"
+  },
+  {
+    "name": "arguments",
+    "type": "JSON",
+    "mode": "NULLABLE",
+    "description": "JSON object with details required to process the file"
+  },
+  {
+    "name": "environment",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "The environment the event originated from (e.g., dev, prod)"
+  }
+]
