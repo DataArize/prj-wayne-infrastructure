@@ -155,3 +155,22 @@ variable "email" {
     error_message = "The email must be a valid email address."
   }
 }
+
+variable "compute_decider_alert" {
+  description = "The display name for the Cloud Run function alert policy."
+  type        = string
+  default     = "Compute Decider Alert"
+}
+
+
+variable "compute_decider_conditions_display_name" {
+  description = "The display name for the alert condition."
+  type        = string
+  default     = "Compute Decider Alert Condition"
+}
+
+variable "compute_decider_logging_metric" {
+  type        = string
+  description = "Name of the logging metric"
+
+}

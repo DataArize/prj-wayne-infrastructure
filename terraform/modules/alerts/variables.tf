@@ -92,3 +92,16 @@ variable "aligner_count" {
   type        = string
   default     = "ALIGN_COUNT"
 }
+
+variable "compute_decider_alert" {
+  description = "The display name for the Cloud Run function alert policy."
+  type        = string
+  default     = "Compute Decider Alert"
+}
+
+
+variable "compute_decider_conditions_display_name" {
+  description = "The display name for the alert condition."
+  type        = string
+  default     = "Compute Decider Alert Condition"
+}

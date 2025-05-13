@@ -38,6 +38,11 @@ module "monitoring" {
   service_name   = var.service_name
 }
 
+module "metrics" {
+  source                         = "../../modules/metrics"
+  compute_decider_logging_metric = var.compute_decider_logging_metric
+}
+
 module "alerts" {
   source = "../../modules/alerts"
   email  = var.email
