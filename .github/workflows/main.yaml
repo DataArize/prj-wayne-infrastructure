@@ -111,7 +111,7 @@ jobs:
             echo "DEADLETTER_NAME=${{ secrets.DEADLETTER_NAME_DEVELOPMENT }}" >> $GITHUB_ENV
             echo "SERVICE_NAME=${{ secrets.COMPUTE_DECIDER_DEVELOPMENT }}" >> $GITHUB_ENV
             echo "EMAIL=${{ secrets.EMAIL_NOTIFICATION_DEVELOPMENT }}" >> $GITHUB_ENV
-            echo "COMPUTE_DECIDER_ALERT=${{ secrets.COMPUTE_DECIDER_ALERT_PRODUCTION }}" >> $GITHUB_ENV
+            echo "COMPUTE_DECIDER_ALERT=${{ secrets.COMPUTE_DECIDER_ALERT_DEVELOPMENT }}" >> $GITHUB_ENV
           fi
 
       - name: Checkout Repository
@@ -227,7 +227,7 @@ jobs:
             echo "DEADLETTER_NAME=${{ secrets.DEADLETTER_NAME_DEVELOPMENT }}" >> $GITHUB_ENV
             echo "SERVICE_NAME=${{ secrets.COMPUTE_DECIDER_DEVELOPMENT }}" >> $GITHUB_ENV
             echo "EMAIL=${{ secrets.EMAIL_NOTIFICATION_DEVELOPMENT }}" >> $GITHUB_ENV
-            echo "COMPUTE_DECIDER_ALERT=${{ secrets.COMPUTE_DECIDER_ALERT_PRODUCTION }}" >> $GITHUB_ENV
+            echo "COMPUTE_DECIDER_ALERT=${{ secrets.COMPUTE_DECIDER_ALERT_DEVELOPMENT }}" >> $GITHUB_ENV
           fi
 
       - name: Checkout Repository
