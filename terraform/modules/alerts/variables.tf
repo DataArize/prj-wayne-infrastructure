@@ -68,8 +68,6 @@ variable "compute_decider_filter" {
 
 }
 
-
-
 variable "alert_duration" {
   description = "The duration for which the condition must be met before triggering an alert."
   type        = string
@@ -112,4 +110,10 @@ variable "compute_decider_conditions_display_name" {
   description = "The display name for the alert condition."
   type        = string
   default     = "Compute Decider Alert Condition"
+}
+
+variable "severity_critical" {
+  description = "Critical severity"
+  type        = string
+  default     = "CRITICAL"
 }

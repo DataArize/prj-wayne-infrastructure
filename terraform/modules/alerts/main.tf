@@ -70,6 +70,7 @@ resource "google_monitoring_alert_policy" "compute_decider_alert" {
       }
     }
   }
+  severity = var.severity_critical
 
   notification_channels = [google_monitoring_notification_channel.email_channel.id]
 }
