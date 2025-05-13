@@ -62,6 +62,14 @@ variable "file_streamer_filter" {
   default     = "resource.type = \"cloud_run_job\" AND resource.labels.job_name = \"prj-wayne-file-streamer\" AND metric.type = \"run.googleapis.com/job/completed_execution_count\" AND metric.labels.result = \"failed\""
 }
 
+variable "compute_decider_filter" {
+  description = "The monitoring filter expression for Cloud Run Job"
+  type        = string
+
+}
+
+
+
 variable "alert_duration" {
   description = "The duration for which the condition must be met before triggering an alert."
   type        = string

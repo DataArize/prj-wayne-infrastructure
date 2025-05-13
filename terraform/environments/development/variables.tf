@@ -174,3 +174,8 @@ variable "compute_decider_logging_metric" {
   description = "Name of the logging metric"
 
 }
+variable "compute_decider_filter" {
+  description = "The monitoring filter expression for Cloud Run Job"
+  type        = string
+
+}

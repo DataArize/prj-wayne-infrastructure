@@ -44,6 +44,7 @@ module "metrics" {
 }
 
 module "alerts" {
-  source = "../../modules/alerts"
-  email  = var.email
+  source                 = "../../modules/alerts"
+  email                  = var.email
+  compute_decider_filter = var.compute_decider_filter
 }

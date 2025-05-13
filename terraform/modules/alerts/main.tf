@@ -57,7 +57,7 @@ resource "google_monitoring_alert_policy" "compute_decider_alert" {
   conditions {
     display_name = var.compute_decider_conditions_display_name
     condition_threshold {
-      filter          = var.file_streamer_filter
+      filter          = var.compute_decider_filter
       duration        = var.alert_duration
       comparison      = var.comparision
       threshold_value = 0
